@@ -1,0 +1,46 @@
+version: '3'
+services:
+  ates-niv-client:
+    image: ghcr.io/atechno-codebase/vue-client:oldMaster
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - ates-niv-server
+  ates-niv-server:
+    image: ghcr.io/atechno-codebase/niv-server:master
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      - REDIS_URL=redis://redis-server:6379
+      - DATABASE_URL=mongodb://mongo-server:27017/niv
+      - ACCESS_TOKEN=secretsecretsecret
+      - FROM_EMAIL=atechwdls@gmail.com
+      - FROM_PWD=bjnmpvrijzksttub
+      - EMAIL_TOK=secretsecretsecretsecretsecretsecret
+      - HOST=http://localhost
+      - INSTITUTE=ates
+      - NODE_ENV=dev
+      - PORT=3000
+      - MASTER_EMAIL=kaustubh.murumkar@gmail.com
+      - MASTER_PWD=admin1234
+      - LOGPATH=/app/logs
+      - BACKUPDIR=/app/backup
+    depends_on:
+      - mongo-server
+      - redis-server
+  mongo-server:
+    image: mongo:3.6
+    restart: always
+    volumes:
+      - ./vol/db:/data/db
+  redis-server:
+    image: bitnami/redis:4.0
+    restart: always
+    ports:
+      - 6379:6379
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
+
