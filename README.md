@@ -2,6 +2,8 @@
 
 ## Running locally
 
+ - Ensure Docker and Docker Compose is installed.
+
  - Generate `personal access token` for your github account. Follow steps mentioned in [Github Documentation](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
  - Login to Github Container Registry:
