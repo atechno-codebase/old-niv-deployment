@@ -6,7 +6,7 @@
 
  - Generate `personal access token` for your github account. Follow steps mentioned in [Github Documentation](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
- - Login to Github Container Registry:
+ - Make sure the user is part of the organisation. Login to Github Container Registry:
 
  ```
  echo <your-personal-access-token> | docker login ghcr.io -u <your-github-username> --password-stdin
